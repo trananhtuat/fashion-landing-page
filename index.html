@@ -18,14 +18,35 @@
 <body>
     <div class="container" style="background-image: url(./static/images/tamara-bellis-68csPWTnafo-unsplash.jpg);">
         <div class="nav">
-            <div class="menu">
-                <i class='bx bx-menu'></i>
+            <div class="menu" onclick="openNav()">
+                <div class="hamburger"></div>
+                <!-- <i class='bx bx-menu'></i> -->
+                <!-- <div class="menu-list">
+                    <div>
+                        Home
+                    </div>
+                    <div>
+                        Shop
+                    </div>
+                    <div>
+                        Blog
+                    </div>
+                </div> -->
             </div>
             <div class="logo">
                 TUAT.TA
             </div>
             <div class="cart">
                 <i class='bx bx-cart-alt'></i>
+            </div>
+        </div>
+        <div id="myNav" class="nav-overlay">
+            <div class="nav-overlay-content">
+                <a href="#">Shop</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
             </div>
         </div>
         <div class="sci">
@@ -45,24 +66,109 @@
             <i class='bx bxs-right-arrow'></i>
         </div>
         <div class="overlay"></div>
-        <div class="col-5">
+        <div class="col-5" style="z-index: 97;">
             <div class="info">
-                <h1>
-                    <span style="color: #e29f01;">GO</span>LD STY<span style="color: #e29f01;">LE</span>
-                </h1>
-                <span>
-                    Collection 2020
-                </span>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt maiores corrupti vel ut veritatis
-                    minus excepturi odio? Earum at, nihil non eaque consequuntur repudiandae tenetur cumque tempora
-                    nulla! Commodi, distinctio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem inventore
-                    explicabo dolores natus amet fugiat excepturi incidunt laboriosam numquam saepe. Eius, repudiandae.
-                    Animi molestiae corrupti iusto beatae aperiam ab doloremque.
-                </p>
-                <button>
-                    Shop now
-                </button>
+                <!-- info 1 -->
+                <div class="product-info">
+                    <h1>
+                        CREA<span style="color: #e29f01;">TIVE</span>
+                    </h1>
+                    <h1>
+                        <span style="color: #e29f01;">DE</span>SIGN
+                    </h1>
+                    <span>
+                        Collection 2020
+                    </span>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt maiores corrupti vel ut
+                        veritatis minus excepturi odio? Earum at, nihil non eaque consequuntur repudiandae tenetur
+                        cumque tempora nulla! Commodi, distinctio! Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Autem
+                        inventore
+                    </p>
+                    <button>
+                        Shop now
+                    </button>
+                </div>
+                <!-- end info 1 -->
+                <!-- info 2 -->
+                <div class="product-info">
+                    <h1>
+                        <span style="color: #e29f01;">passion</span>nate
+                    </h1>
+                    <h1>
+                        pur<span style="color: #e29f01;">suit</span>
+                    </h1>
+                    <span>
+                        Collection 2020
+                    </span>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt maiores corrupti vel ut
+                        veritatis
+                        minus excepturi odio? Earum at, nihil non eaque consequuntur repudiandae tenetur cumque tempora
+                        nulla! Commodi, distinctio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+                        inventore
+                        explicabo dolores natus amet fugiat excepturi incidunt laboriosam numquam saepe. Eius,
+                        repudiandae.
+                        Animi molestiae corrupti iusto beatae aperiam ab doloremque.
+                    </p>
+                    <button>
+                        Shop now
+                    </button>
+                </div>
+                <!-- end info 2 -->
+                <!-- info 3 -->
+                <div class="product-info">
+                    <h1>
+                        <span style="color: #e29f01;">BE</span>
+                    </h1>
+                    <h1>
+                        <span style="color: #e29f01;">You</span>rself
+                    </h1>
+                    <span>
+                        Collection 2020
+                    </span>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt maiores corrupti vel ut
+                        veritatis
+                        minus excepturi odio? Earum at, nihil non eaque consequuntur repudiandae tenetur cumque tempora
+                        nulla! Commodi, distinctio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+                        inventore
+                        explicabo dolores natus amet fugiat excepturi incidunt laboriosam numquam saepe. Eius,
+                        repudiandae.
+                        Animi molestiae corrupti iusto beatae aperiam ab doloremque.
+                    </p>
+                    <button>
+                        Shop now
+                    </button>
+                </div>
+                <!-- end info 3 -->
+                <!-- info 4 -->
+                <div class="product-info">
+                    <h1>
+                        <span style="color: #e29f01;">GO</span>LD
+                    </h1>
+                    <h1>
+                        STY<span style="color: #e29f01;">LE</span>
+                    </h1>
+                    <span>
+                        Collection 2020
+                    </span>
+                    <p>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt maiores corrupti vel ut
+                        veritatis
+                        minus excepturi odio? Earum at, nihil non eaque consequuntur repudiandae tenetur cumque tempora
+                        nulla! Commodi, distinctio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+                        inventore
+                        explicabo dolores natus amet fugiat excepturi incidunt laboriosam numquam saepe. Eius,
+                        repudiandae.
+                        Animi molestiae corrupti iusto beatae aperiam ab doloremque.
+                    </p>
+                    <button>
+                        Shop now
+                    </button>
+                </div>
+                <!-- end info 4 -->
             </div>
         </div>
         <div class="col-7">
@@ -73,16 +179,16 @@
                 </div>
                 <div class="slide">
                     <div class="img-holder"
+                        style="background-image: url(./static/images/luobulinka-FO4mQZi1c0M-unsplash.jpg)">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="img-holder"
                         style="background-image: url(./static/images/dillon-kydd-gbbsmERXCUg-unsplash.jpg)"></div>
                 </div>
                 <div class="slide">
                     <div class="img-holder"
                         style="background-image: url(./static/images/laura-chouette-d7wSG9uPev4-unsplash.jpg)"></div>
-                </div>
-                <div class="slide">
-                    <div class="img-holder"
-                        style="background-image: url(./static/images/luobulinka-FO4mQZi1c0M-unsplash.jpg)">
-                    </div>
                 </div>
             </div>
         </div>

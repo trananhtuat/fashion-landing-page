@@ -46,13 +46,21 @@ html {
 .info {
     color: var(--bg-color);
     text-align: right;
-    padding: 0 80px;
+    /* padding: 0 80px; */
+    position: relative;
+    display: flex;
+    overflow: visible;
+    width: 100%;
+    height: 80%;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 .info h1 {
     font-size: 150px;
     font-weight: 900;
     line-height: 140px;
+    text-transform: uppercase;
     transition: .5s ease-in-out;
 }
 
@@ -71,13 +79,81 @@ html {
     color: #fff;
     font-weight: 600;
     cursor: pointer;
-    transition: .3s ease-in-out;
+    transition: background-color .3s ease-in-out;
 }
 
 .info button:hover {
     background-color: #fff;
     color: #000;
 }
+
+.product-info {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    /* top: 0; */
+    left: 0;
+    padding: 0 80px;
+    pointer-events: none;
+}
+
+.product-info.active {
+    pointer-events: visible;
+}
+
+.product-info h1,
+.product-info>span,
+.product-info p,
+.product-info button {
+    opacity: 0;
+    transition: opacity 1s ease-in-out,
+        transform 1.2s ease-in-out,
+        letter-spacing 1.2s ease-in-out,
+        right 1.2s ease-in-out;
+}
+
+.product-info button {
+    transition-delay: .2s;
+}
+
+.product-info.active h1,
+.product-info.active>span,
+.product-info.active p,
+.product-info.active button {
+    opacity: 1;
+}
+
+.product-info h1 {
+    text-align: left;
+    letter-spacing: 20px;
+}
+
+.product-info.active h1 {
+    letter-spacing: unset;
+}
+
+.product-info>span {
+    position: absolute;
+    right: 200px;
+}
+
+.product-info.active>span {
+    right: 80px;
+}
+
+.product-info p,
+.product-info button {
+    transform: translateY(100px);
+}
+
+.product-info.active p,
+.product-info.active button {
+    transform: translateY(0);
+}
+
+/* .product-info.active {
+    display: block;
+} */
 
 .slider {
     display: flex;
@@ -86,6 +162,7 @@ html {
     width: 50%;
     height: 80%;
     overflow: visible;
+
 }
 
 .slide {
@@ -94,7 +171,10 @@ html {
     width: 100%;
     height: 100%;
     align-items: center;
-    transition: 2s ease-in-out;
+    transition: 1s ease-in-out;
+    /* opacity: 0; */
+    /* transform: translateY(100%); */
+    animation: bottom-up 2s;
 }
 
 .slide:nth-child(1) {
@@ -153,12 +233,30 @@ html {
     font-size: 30px;
     font-weight: 900;
     cursor: pointer;
+    opacity: 0;
+    transform: translateY(-100%);
+    animation: top-down 1.5s forwards;
 }
 
-.menu,
-.cart {
-    font-size: 40px;
+.menu {
+    height: 30px;
+    width: 30px;
     cursor: pointer;
+    z-index: 101;
+    position: relative;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: left-to-right 1.5s forwards;
+}
+
+.cart {
+    font-size: 30px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: right-to-left 1.5s forwards;
 }
 
 .sci {
@@ -172,6 +270,9 @@ html {
     align-items: center;
     flex-direction: column;
     padding: 0 20px;
+    opacity: 0;
+    transform: translateX(100%);
+    animation: right-to-left 1.5s forwards;
 }
 
 .sci i {
@@ -196,6 +297,9 @@ html {
     text-orientation: mixed;
     font-size: 20px;
     font-weight: 600;
+    opacity: 0;
+    /* transform: translateX(-100%); */
+    animation: left-to-right 1.5s forwards;
 }
 
 .copyright {
@@ -240,6 +344,103 @@ a {
     color: #000;
 }
 
+.nav-overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 101;
+    top: 80px;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.nav-overlay.active {
+    width: 100%;
+}
+
+.nav-overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.nav-overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.nav-overlay a:hover,
+.nav-overlay a:focus {
+    color: #f1f1f1;
+}
+
+.nav-overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+.hamburger {
+    position: relative;
+    cursor: pointer;
+}
+
+.hamburger-btn {
+    cursor: pointer;
+    z-index: 1;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    width: 30px;
+    height: 3px;
+    border-radius: .5rem;
+    background-color: white;
+    transition: .4s;
+}
+
+.hamburger::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+
+}
+
+.hamburger::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+
+.hamburger.active {
+    background-color: transparent;
+}
+
+.hamburger.active::before {
+    transform-origin: top left;
+    transform: rotate(45deg);
+    left: 1rem;
+}
+
+.hamburger.active::after {
+    transform-origin: bottom left;
+    transform: rotate(-45deg);
+    left: 1rem;
+}
+
 /* ANIMATION */
 
 @keyframes bounce-left {
@@ -260,6 +461,54 @@ a {
     }
 }
 
+@keyframes top-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bottom-up {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes left-to-right {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes right-to-left {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 @keyframes zoom {
     0% {
         width: 30px;
@@ -272,75 +521,151 @@ a {
     }
 }
 
-/* .slide:nth-child(1) {
-    width: 50%;
-    z-index: 3;
-}
-
-.slide:nth-child(2) {
-    width: 30%;
-    transform: translateX(-50%);
-    z-index: 2;
-}
-
-.slide:nth-child(3) {
-    width: 20%;
-    transform: translateX(-150%);
-    z-index: 1;
-}
-
-.slide:nth-child(2) .img-holder {
-    height: 80%;
-}
-
-.slide:nth-child(3) .img-holder {
-    height: 60%;
-} */
-
-.col-1 {
-    width: 8.33%;
-}
-
-.col-2 {
-    width: 16.66%;
-}
-
-.col-3 {
-    width: 25%;
-}
-
-.col-4 {
-    width: 33.33%;
-}
+/* RESPONSIVE */
 
 .col-5 {
     width: 41.66%;
-}
-
-.col-6 {
-    width: 50%;
 }
 
 .col-7 {
     width: 58.33%;
 }
 
-.col-8 {
-    width: 66.66%;
+@media only screen and (max-width: 1440px) {
+    .info {
+        align-items: flex-start;
+    }
+
+    .info h1 {
+        /* font-size: 110px; */
+        text-align: left;
+    }
+
+    .product-info {
+        padding: 0 50px;
+    }
+
+    .slider {
+        width: 50%;
+        height: 60%;
+        transform: translateY(20%);
+    }
 }
 
-.col-9 {
-    width: 75%;
+@media only screen and (max-width: 1024px) {
+    .info {
+        align-items: flex-start;
+    }
+
+    .info h1 {
+        font-size: 110px;
+        text-align: left;
+    }
+
+    .info p {
+        font-size: 14px;
+    }
+
+    .info button {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+
+    .product-info {
+        padding: 0 20px;
+    }
+
+    .slider {
+        width: 80%;
+        height: 50%;
+        transform: translateY(20%);
+    }
 }
 
-.col-10 {
-    width: 83.33%;
+@media only screen and (max-width: 768px) {
+    .info {
+        align-items: flex-start;
+    }
+
+    .info h1 {
+        font-size: 80px;
+        line-height: 80px;
+        text-align: left;
+    }
+
+    .info p {
+        font-size: 14px;
+    }
+
+    .info button {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+
+    .product-info {
+        padding: 0 20px;
+    }
+
+    .col-7 {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .slider {
+        width: 80%;
+        height: 80%;
+        transform: translateY(20%);
+    }
 }
 
-.col-11 {
-    width: 91.66%;
-}
+@media only screen and (max-width: 600px) {
 
-.col-12 {
-    width: 100%;
+    .col-5,
+    .col-7 {
+        width: 100%;
+        height: 50%;
+    }
+
+    .container {
+        flex-direction: column-reverse;
+    }
+
+    .nav {
+        top: 0;
+    }
+
+    .info {
+        align-items: flex-start;
+    }
+
+    .info h1 {
+        font-size: 63px;
+        line-height: 60px;
+        text-align: left;
+    }
+
+    .info p {
+        font-size: 12px;
+    }
+
+    .info button {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+
+    .product-info {
+        padding: 0 20px;
+    }
+
+    .col-7 {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .slider {
+        width: 80%;
+        height: 80%;
+        transform: translateY(20%);
+        padding: 50px;
+    }
 }
