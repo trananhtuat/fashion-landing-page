@@ -226,7 +226,7 @@ html {
     /* background-color: rebeccapurple; */
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 80px;
 }
 
 .logo {
@@ -432,13 +432,13 @@ a {
 .hamburger.active::before {
     transform-origin: top left;
     transform: rotate(45deg);
-    left: 1rem;
+    left: 6px;
 }
 
 .hamburger.active::after {
     transform-origin: bottom left;
     transform: rotate(-45deg);
-    left: 1rem;
+    left: 6px;
 }
 
 /* ANIMATION */
