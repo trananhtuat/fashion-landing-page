@@ -23,11 +23,8 @@ scrollSlide = () => {
     zIndex = reverse[0].style.zIndex
 
     reverse.forEach((el, index) => {
-        // console.log(el)
     
         if (index < listitems.length-1) {
-            // console.log(index)
-            // console.log(reverse[index + 1].offsetLeft)
             el.style.left = reverse[index + 1].offsetLeft+'px'
             el.style.height = reverse[index + 1].offsetHeight+'px'
             el.style.width = reverse[index + 1].offsetWidth+'px'
@@ -52,12 +49,6 @@ scrollSlide = () => {
                 cln.style.zIndex = 0
                 cln.style.animation = 'unset'
                 slider.appendChild(cln)
-                setTimeout(() => {
-                    // console.log(height)
-                    // cln.style.transform = '1'
-                    // cln.style.opacity = '1'
-                    
-                },10);
                 isScroll = false
             }, 1000);
         }

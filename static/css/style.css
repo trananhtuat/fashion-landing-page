@@ -106,10 +106,7 @@ html {
 .product-info p,
 .product-info button {
     opacity: 0;
-    transition: opacity 1s ease-in-out,
-        transform 1.2s ease-in-out,
-        letter-spacing 1.2s ease-in-out,
-        right 1.2s ease-in-out;
+    transition: unset;
 }
 
 .product-info button {
@@ -121,6 +118,10 @@ html {
 .product-info.active p,
 .product-info.active button {
     opacity: 1;
+    transition: opacity 1s ease-in-out,
+        transform 1.2s ease-in-out,
+        letter-spacing 1.2s ease-in-out,
+        right 1.2s ease-in-out;
 }
 
 .product-info h1 {
